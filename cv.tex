@@ -1,131 +1,122 @@
 %!TEX TS-program = xelatex
-\documentclass[]{friggeri-cv}
+\documentclass{friggeri-cv}
 \addbibresource{bibliography.bib}
 
+\usepackage{ulem}
+
+
 \begin{document}
-\header{adrien}{friggeri}
-       {social network analyst}
+\header{Guilherme}{Nogueira}
+       {developer}
 
 
 % In the aside, each new line forces a line break
 \begin{aside}
-  \section{about}
-    31 rue Smith
-    69002 Lyon
-    France
+  \section{contact}
+    R. Manuel Henrique Lopes, 220/Apt 16
+    05417-050 São Paulo
+    Brasil
     ~
-    \href{mailto:adrien@friggeri.net}{adrien@friggeri.net}
-    \href{http://friggeri.net}{http://friggeri.net}
-    \href{http://facebook.com/adrien}{fb://adrien}
+    \sout{+55 27 81 23 95 15}
+    +33 \phantom{0}7 53 05 52 36
+    {\footnotesize skype} guilherme\_nirev
+    \href{mailto:guilherme@nirev.org}{guilherme@nirev.org}
+    \href{http://nirev.org}{http://nirev.org}
   \section{languages}
-    bilingual french/english
-    spanish \& italian notions
+    native portuguese
+    fluent english
+    basic french
   \section{programming}
-    {\color{red} $\varheartsuit$} JavaScript
-    (ES5, node.js)
-    Python, C, OCaml
-    CSS3 \& HTML5
+    {\color{red} $\varheartsuit$} C, Python
+    Java, C++, PHP, Android
+  \section{skills}
+    vraptor, django,
+    mysql, postgres,
+    CSS \& HTML5,
+    jQuery, Linux admin,
+    bash scripting
+  \section{interests}
+distributed systems, multimedia, mobile applications and networks, data structures, data mining, optimization, music, martial arts,
+books
 \end{aside}
 
-\section{interests}
-
-complex networks, social networks, community detection, community structure,
-overlapping communities, information diffusion, viral marketing, social
-inference, recommendation, data mining
 
 \section{education}
 
 \begin{entrylist}
-  \entry
-    {since 2009}
-    {Ph.D. {\normalfont candidate in Computer Science}}
-    {DNET/INRIA, LIP/ÉNS de Lyon}
-    {\emph{A Quantified Theory of Social Cohesion.}}
-  \entry
-    {2007–2008}
-    {M.Sc. magna cum laude}
-    {IXXI, École Normale Supérieure de Lyon}
-    {Majoring in Computer Science\\
-    Specialization in Complex Systems}
-  \entry
-    {2006–2007}
-    {B.Sc. magna cum laude}
-    {École Normale Supérieure de Lyon}
-    {Majoring in Computer Science}
-  \entry
-    {2003–2006}
-    {Classes Préparatoires aux Grandes Écoles}
-    {Lycée Fénelon, Lycée Louis le Grand, Paris}
-    {Preparation for national competitive entrance exams to leading French ``grandes écoles'', specializing in mathematics and physics.}
-  \entry
-    {2003}
-    {French Baccalauréat S. with honors}
-    {Lycée Louis le Grand, Paris}
-    {Specialization in mathematics and physics}
+
+\entry
+  {since $\,\,$2011}
+  {Master in Computer Science}
+  {University of São Paulo - Brazil}{}
+\entry
+  {2005–2010}
+  {B.Sc. in Computer Science}
+  {Universidade Federal do Espírito Santo - Brazil}{}
 \end{entrylist}
 
 \section{experience}
 
-\begin{entrylist}
-  \entry
-    {02–07 2009}
-    {LIP6/CNRS, Paris}
-    {Research Internship.}
-    {\emph{Visualization of complex networks.}}
-  \entry
-    {06–08 2008}
-    {ISCPIF/CNRS, Paris}
-    {Research Internship.}
-    {\emph{Diffusion in the Blogosphere. Happy Flu.}}
-  \entry
-    {06–08 2007}
-    {LIP6/CNRS, Paris}
-    {Research Internship.}
-    {\emph{Kernels in real world networks.}}
-  \entry
-    {07–08 2005}
-    {\href{http://www.kelkoo.com}{Kelkoo.com}}
-    {Summer job.}
-    {\emph{Creation of a keyword generator for Google Adwords.}}
-  \entry
-    {07–08 2004}
-    {\href{http://www.monsieurprix.com}{MonsieurPrix.com}}
-    {Summer job.}
-    {\emph{Development of an e-commerce product indexation spider.}}
-\end{entrylist}
+\workentry
+  {April 2012}{October 2012}
+  {Intern at INRIA Paris-Roquencourt}
+  {Rocquencourt, Île-de-France - France}
+  {Research on supporting non-functional requirements for Wireless Sensor Networks macroprogramming using SunSPOTs.}
 
-\section{applications}
+\workentry
+  {March 2011}{*}
+  {Intern for CHOReOS project}
+  {University of São Paulo, São Paulo - Brazil}
+  {Research and implementation involving: choreography analysis using graph metrics,
+  dynamic adaptation techniques, implementation of a testing framework, and cloud computing.}
 
-\begin{entrylist}
-  \entry
-    {2012}
-    {Who did I forget ?}
-    {\href{http://whodidiforget.com}{whodidiforget.com}}
-    {Guest list recommendation for Facebook events based on friends already attending the event.}
-  \entry
-    {2011}
-    {Fellows}
-    {\href{http://fellows-exp.com}{fellows-exp.com}}
-    {Automatic community detection among Facebook Friends in order to validate the \emph{cohesion} measure, creation of friend lists.}
-  \entry
-    {2008}
-    {Happy Flu}
-    {\href{http://happyflu.com}{happyflu.com}}
-    {Experiment aimed to measure viral spreading of content across the blogosphere.}
-\end{entrylist}
+\workentry
+  {August 2010}{February 2011}
+  {Analist Developer at RR Sistema}
+  {Vitória/ES - Brazil}
+  {Porting their implementation of Brazilian DTV middleware to different platforms.
+  Mainly programming in C/C++, with low-level and multimedia libraries (GStreamer, DirectFB, pthreads, osal, etc),
+  and required knowledge of the Brazilian digital television standards, Linux, embedded systems and
+  distributed version control systems.}
 
-\section{publications}
+\workentry
+  {January 2009}{December 2010}
+  {Intern at Multimedia and Network Research Lab}
+  {Federal University of Espiríto Santo, Vitória/ES - Brazil}
+  {Developed an implementation of the Brazilian DTV middleware for Android, and part of it is my B.Sc monograph.}
+
+\workentry
+  {August 2008}{December 2008}
+  {Intern at Laboratory of Advanced Software SYstems (LASSY)}
+  {University of Luxembourg - Luxembourg}
+  {Worked in the RESIST project, developing a prototype for an eHealth application using SOA with multiple Web Services,
+  using standards such as Apache CXF and WS-Security.}
+
+\workentry
+  {January 2008}{March 2008}
+  {Intern at CISA Trading S.A.}
+  {Trading company, São Paulo/SP - Brazil}
+  {Maintaining their internal software solution which manages all of the companies processes.
+  The system was written in the Progress4GL language.}
+
+\workentry
+  {March 2007}{December 2007}
+  {Intern at NINFA laboratory}
+  {Federal University of Espiríto Santo, Vitória/ES - Brazil}
+  {Joint project with ESCELSA, state's electric power utility, building automated classifiers
+  for finding frauds done by its clients. Used optimization heuristics, neural networks and clustering.
+  Tools developed in Java, C++ and Matlab.}
+
+\workentry
+  {September 2006}{March 2007}
+  {Intern at Lettera Soluções}
+  {Web developing company, Vitória/ES - Brazil}
+  {Developing and managing web sites using CSS, (x)HTML, PHP, ASP, MySQL, PostgreSQL, as well as common Linux admin tools.}
 
 
 \printbibsection{article}{article in peer-reviewed journal}
-\begin{refsection}
-  \nocite{*}
-  \printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
-\end{refsection}
-\begin{refsection}
-  \nocite{*}
-  \printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
-\end{refsection}
+\printbibsectionpar{inproceedings}{international peer-reviewed conferences/proceedings}{notkeyword={brazil}}
+\printbibsectionpar{inproceedings}{local peer-reviewed conferences/proceedings}{keyword={brazil}}
 \printbibsection{misc}{other publications}
 \printbibsection{report}{research reports}
 
