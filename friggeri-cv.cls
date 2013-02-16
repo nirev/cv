@@ -2,12 +2,14 @@
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption{print}{\def\@cv@print{}}
+\DeclareOption{academic}{\def\@cv@academic{}}
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
 }
 \ProcessOptions\relax
-\LoadClass{article}
+\LoadClass[a4]{article}
 
+\RequirePackage{comment}
 
 %%%%%%%%%%
 % Colors %
@@ -49,12 +51,12 @@
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
-\newfontfamily\bodyfont[]{Helvetica Neue}
-\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
-\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
+\newfontfamily\bodyfont[]{Ubuntu}
+\newfontfamily\thinfont[]{Ubuntu Light}
+\newfontfamily\headingfont[]{Ubuntu Condensed}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+\setmainfont[Mapping=tex-text, Color=textcolor]{Ubuntu Light}
 
 \setmathfont{XITS Math}
 
@@ -72,7 +74,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.2cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -98,9 +100,9 @@
     \color{%
       \ifcase\value{colorCounter}%
         blue\or%
-        red\or%
-        orange\or%
         green\or%
+        orange\or%
+        red\or%
         purple\else%
         headercolor\fi%
     } #1#2#3%
@@ -135,15 +137,27 @@
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
 }{%
   \end{tabular*}
+  \vspace{-0.4cm}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+  \parbox[t]{2cm}{#1}&\parbox[t]{11.8cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
+
+\newcommand{\workentry}[5]{%
+  \parbox[t]{\textwidth}{%
+    \parbox[t]{\textwidth}{\small #1 – #2}\\%
+    \parbox[t]{\textwidth}{%
+    \textbf{#3}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #4}\\%
+    #5\vspace{\parsep}%
+  }\\}%
+}
 
 
 %%%%%%%%%%%%%%
@@ -158,7 +172,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{3.6}(1.5, 4.33)
+  \begin{textblock}{3.6}(0.9, 3.80)
   \begin{flushright}
   \obeycr
 }{%
@@ -263,12 +277,26 @@
     {}%
 }
 
-\newcommand{\printbibsection}[2]{
-  \begin{refsection}
-    \nocite{*}
-    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=subbibliography]
-  \end{refsection}
-}
+
+\ifdefined\@cv@academic
+  \newcommand{\printbibsection}[2]{
+    \begin{refsection}
+      \nocite{*}
+      \printbibliography[type={#1}, title={#2}, heading=subbibliography]
+    \end{refsection}
+  }
+  \newcommand{\printbibsectionpar}[3]{
+    \begin{refsection}
+      \nocite{*}
+      \printbibliography[type={#1}, title={#2}, heading=subbibliography, #3]
+    \end{refsection}
+  }
+\else
+  \newcommand{\printbibsection}[2]{}
+  \newcommand{\printbibsectionpar}[3]{}
+\fi
+
+
 
 \DeclareSortingScheme{chronological}{
   \sort[direction=descending]{\field{year}}
@@ -281,5 +309,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
-\RequirePackage{hyperref}
+\RequirePackage[left=5.7cm,top=1.5cm,right=1.5cm,bottom=2.0cm,nohead,nofoot]{geometry}
+\RequirePackage[hidelinks]{hyperref}
