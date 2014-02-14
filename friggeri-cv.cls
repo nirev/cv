@@ -137,7 +137,7 @@
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
 }{%
   \end{tabular*}
-  \vspace{-0.4cm}
+  %\vspace{-0.4cm}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
@@ -145,7 +145,7 @@
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}%
+    #4\vspace{-0.35cm}%
   }\\}
 
 \newcommand{\workentry}[5]{%
@@ -309,5 +309,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=5.7cm,top=1.5cm,right=1.5cm,bottom=2.0cm,nohead,nofoot]{geometry}
+\RequirePackage[left=5.7cm,top=1.4cm,right=1.5cm,bottom=1.0cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
