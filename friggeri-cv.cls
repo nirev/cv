@@ -48,7 +48,7 @@
 % Fonts %
 %%%%%%%%%
 
-\RequirePackage[quiet]{fontspec}
+\RequirePackage{fontspec}
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
 \newfontfamily\bodyfont[]{Ubuntu}
@@ -58,7 +58,9 @@
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Ubuntu Light}
 
-\setmathfont{XITS Math}
+
+%\setmathfont{XITS Math}
+\setmathfont{xits-math.otf}
 
 %%%%%%%%%%
 % Header %
