@@ -67,6 +67,7 @@
 %%%%%%%%%%
 
 \RequirePackage{tikz}
+\RequirePackage{graphicx}
 
 \newcommand{\rolefont}{%
   \fontsize{14pt}{24pt}\selectfont%
