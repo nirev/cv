@@ -1,4 +1,7 @@
-\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
+%% Based on original template by Adrien Friggeri (github.com/afriggeri)
+%% Modified by Guilherme de Maio (github.com/nirev)
+
+\ProvidesClass{nirev-cv}[2017/08/03 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption{print}{\def\@cv@print{}}
@@ -49,7 +52,7 @@
 %%%%%%%%%
 
 \RequirePackage{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage{unicode-math}
 
 \newfontfamily\bodyfont[]{Ubuntu}
 \newfontfamily\thinfont[]{Ubuntu Light}
@@ -77,7 +80,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.2cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.0cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -87,7 +90,7 @@
       \thinfont #3%
     };
   \end{tikzpicture}
-  \vspace{2.5cm}
+  \vspace{2.2cm}
   \vspace{-2\parskip}
 }
 
@@ -272,14 +275,20 @@
   \par\vspace{0.3\baselineskip}
 }
 
+% New syntax for flexible backend (BibLaTeX > v3.3)
 \DeclareNameFormat{author}{%
   \small\addfontfeature{Color=lightgray}%
-  \ifblank{#3}{}{#3\space}#1%
+  \renewcommand*{\multinamedelim}{\addcomma\addspace}%
+  \nameparts{#1}%
+  \ifthenelse{\value{listcount}=1}
+    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    \namepartfamily}%
+    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    \namepartfamily}%
   \ifthenelse{\value{listcount}<\value{liststop}}
-    {\addcomma\space}
-    {}%
+  {\addcomma\space}
+  {}
 }
-
 
 \ifdefined\@cv@academic
   \newcommand{\printbibsection}[2]{

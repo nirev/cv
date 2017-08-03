@@ -7,7 +7,7 @@ cv:
 	xelatex cv.tex
 
 print:
-	echo "\PassOptionsToClass{print}{friggeri-cv}\input{cv.tex}" > cv-print.tex
+	echo "\PassOptionsToClass{print}{nirev-cv}\input{cv.tex}" > cv-print.tex
 	xelatex cv-print.tex
 	find . -name \*.aux -exec bibtex {} \;
 	xelatex cv-print.tex
@@ -15,7 +15,7 @@ print:
 	rm cv-print.tex
 
 academic:
-	echo "\PassOptionsToClass{academic}{friggeri-cv}\input{cv.tex}" > cv-academic.tex
+	echo "\PassOptionsToClass{academic}{nirev-cv}\input{cv.tex}" > cv-academic.tex
 	xelatex cv-academic.tex
 	find . -name \*.aux -exec bibtex {} \;
 	xelatex cv-academic.tex
@@ -23,7 +23,7 @@ academic:
 	rm cv-academic.tex
 
 academic-print:	
-	echo "\PassOptionsToClass{academic,print}{friggeri-cv}\input{cv.tex}" > cv-academic-print.tex
+	echo "\PassOptionsToClass{academic,print}{nirev-cv}\input{cv.tex}" > cv-academic-print.tex
 	xelatex cv-academic-print.tex
 	find . -name \*.aux -exec bibtex {} \;
 	xelatex cv-academic-print.tex
