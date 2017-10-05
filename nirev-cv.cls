@@ -12,6 +12,7 @@
 \ProcessOptions\relax
 \LoadClass[a4]{article}
 
+\RequirePackage{titlesec}
 \RequirePackage{comment}
 
 %%%%%%%%%%
@@ -57,6 +58,7 @@
 \newfontfamily\bodyfont[]{Ubuntu}
 \newfontfamily\thinfont[]{Ubuntu Light}
 \newfontfamily\headingfont[]{Ubuntu Condensed}
+\newfontfamily\monofont[]{Ubuntu Mono}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Ubuntu Light}
@@ -80,8 +82,8 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.0cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=2.6cm] (box) at (current page.north){};
+    \node [anchor=south,yshift=-0.4cm] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
     };
@@ -90,8 +92,7 @@
       \thinfont #3%
     };
   \end{tikzpicture}
-  \vspace{2.2cm}
-  \vspace{-2\parskip}
+  \vspace{1.2cm}
 }
 
 
@@ -122,13 +123,15 @@
     \LARGE\headingfont\color{headercolor}%
     \@sectioncolor #1%
   }
-  \par\vspace{\parskip}
+  \par\vspace{-0.2\parskip}
 }
 
-\renewcommand{\subsection}[2]{
-  \par\vspace{.5\parskip}%
-  \Large\headingfont\color{headercolor} #2%
-  \par\vspace{.25\parskip}%
+\renewcommand{\subsection}[1]{
+  \par\vspace{.5\parskip}
+  {%
+    \Large\headingfont\color{headercolor} \@sectioncolor #1%
+  }
+  \vspace{-\parskip}
 }
 
 \pagestyle{empty}
@@ -147,11 +150,12 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  \parbox[t]{2cm}{#1}&\parbox[t]{11.8cm}{%
+  \parbox[t]{2cm}{\small #1}&\parbox[t]{11.8cm}{%
+    \small
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{-0.35cm}%
+    #4\vspace{-0.5cm}%
   }\\}
 
 \newcommand{\workentry}[5]{%
@@ -161,15 +165,23 @@
     \textbf{#3}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #4}\\%
-    #5\vspace{\parsep}%
+    #5\vspace{.7\parsep}%
   }\\}%
 }
 
+\newcommand{\shortworkentry}[5]{%
+  & \parbox[t]{\textwidth}{%
+    \footnotesize{\monofont\color{gray} #1 to #2} - \textbf{#3}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #4}\\%
+    \vspace{-0.5cm}
+  }\\}
 
 %%%%%%%%%%%%%%
 % Side block %
 %%%%%%%%%%%%%%
 
+\RequirePackage{fontawesome}
 \RequirePackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
@@ -178,7 +190,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{3.6}(0.9, 3.80)
+  \begin{textblock}{3.6}(0.9, 2.90)
   \begin{flushright}
   \obeycr
 }{%
@@ -321,5 +333,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=5.7cm,top=1.4cm,right=1.5cm,bottom=1.0cm,nohead,nofoot]{geometry}
+\RequirePackage[left=5.7cm,top=1.4cm,right=1.5cm,bottom=0cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
