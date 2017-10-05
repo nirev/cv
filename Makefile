@@ -33,3 +33,9 @@ academic-print:
 clean:
 	find . -name cv\*-blx\* -delete
 	rm -rf *.aux *.bbl *.blg *.log *.out *.xml *~
+
+with-docker:
+	docker run -t -w '/mnt' -v /Users/nirev/dev/cv:/mnt texlive make
+
+with-docker-%:
+	docker run -t -w '/mnt' -v /Users/nirev/dev/cv:/mnt texlive make $*
