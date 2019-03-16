@@ -10,7 +10,7 @@
   \PassOptionsToClass{\CurrentOption}{article}%
 }
 \ProcessOptions\relax
-\LoadClass[a4]{article}
+\LoadClass[a4paper]{article}
 
 \RequirePackage{titlesec}
 \RequirePackage{comment}
@@ -64,8 +64,7 @@
 \setmainfont[Mapping=tex-text, Color=textcolor]{Ubuntu Light}
 
 
-%\setmathfont{XITS Math}
-\setmathfont{xits-math.otf}
+\setmathfont{XITS Math}
 
 %%%%%%%%%%
 % Header %
@@ -322,7 +321,7 @@
 
 
 
-\DeclareSortingScheme{chronological}{
+\DeclareSortingTemplate{chronological}{
   \sort[direction=descending]{\field{year}}
   \sort[direction=descending]{\field{month}}
 }
