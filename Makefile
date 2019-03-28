@@ -1,3 +1,5 @@
+ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+
 all: cv print academic academic print
 
 cv:
@@ -35,7 +37,7 @@ clean:
 	rm -rf *.aux *.bbl *.blg *.log *.out *.xml *~
 
 with-docker:
-	docker run -t -w '/mnt' -v /Users/nirev/dev/cv:/mnt texlive make
+	docker run -t -w '/mnt' -v ${ROOT_DIR}:/mnt texlive make
 
 with-docker-%:
-	docker run -t -w '/mnt' -v /Users/nirev/dev/cv:/mnt texlive make $*
+	docker run -t -w '/mnt' -v ${ROOT_DIR}:/mnt texlive make $*
