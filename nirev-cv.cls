@@ -147,6 +147,13 @@
   \end{tabular*}
   %\vspace{-0.4cm}
 }
+\newenvironment{smallentrylist}{%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+  \vspace{-5pt}
+}{%
+  \end{tabular*}
+  %\vspace{-0.4cm}
+}
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
   \parbox[t]{2cm}{\small #1}&\parbox[t]{11.8cm}{%
@@ -169,12 +176,13 @@
 }
 
 \newcommand{\shortworkentry}[5]{%
-  & \parbox[t]{\textwidth}{%
-    \footnotesize{\monofont\color{gray} #1 to #2} - \textbf{#3}%
+  & \parbox[t][10sp]{\textwidth}{%
+    \scriptsize{\monofont\color{gray} #1 to #2} - \textbf{#3}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #4}\\%
-    \vspace{-0.5cm}
-  }\\}
+    {\scriptsize\addfontfeature{Color=lightgray} #4}\\%
+  }\\
+  \vspace{-5pt}
+}
 
 %%%%%%%%%%%%%%
 % Side block %
